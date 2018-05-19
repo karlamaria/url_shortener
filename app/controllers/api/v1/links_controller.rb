@@ -1,12 +1,12 @@
 class Api::V1::LinksController < ApplicationController
-  before_action :set_link, only: [:expand]
-
   # GET /links/abc
   def expand
+    @link = Link.find(params[:short_url])
     if @link
-      redirect_to "//#{@link.longURL}", status: :moved_permanently
+      @link.increment!(:clicks)
+      redirect_to @link.long_url, status: :moved_permanently
     else
-      head :not_found, "content_type" => 'text/plain'
+      head :not_found
     end
   end
 
@@ -22,14 +22,8 @@ class Api::V1::LinksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_link
-      link_id = params[:shortURL].to_i(36)
-      @link = Link.find_by_id(link_id)
-    end
-
     # Only allow a trusted parameter "white list" through.
     def link_params
-      params.require(:link).permit(:longURL)
+      params.require(:link).permit(:long_url)
     end
 end
