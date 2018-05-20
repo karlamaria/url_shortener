@@ -26,7 +26,7 @@ development: &development
   database: url_shortner_development
   username: postgres
   password: psql-development
-  host: localhost
+  host: db
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

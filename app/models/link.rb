@@ -2,7 +2,7 @@ class Link < ApplicationRecord
   before_validation :format_long_url, on: :create
   after_create :shorten_url
 
-  DOMAIN = 'http://url_shortener.herokuapp.com/'.freeze
+  DOMAIN = ENV['SHORTENER_URL_DOMAIN'].freeze
 
   def self.find(short_url)
     link_id = ::Base36Encoder.decode(short_url)

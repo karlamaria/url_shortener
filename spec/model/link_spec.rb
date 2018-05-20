@@ -25,7 +25,7 @@ RSpec.describe Link, type: :model do
 
     it 'shortened URL' do
       subject.save
-      expect(subject.short_url).to eq("http://url_shortener.herokuapp.com/1")
+      expect(subject.short_url).to eq("http://shortenerurl-staging.com/1")
     end
 
     context 'when a URL has no protocol' do

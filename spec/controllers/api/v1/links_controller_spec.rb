@@ -50,7 +50,7 @@ RSpec.shared_examples 'POST Links V1' do |url|
 
       body = JSON.parse(last_response.body)
       expect(body['long_url']).to eq('http://wwww.google.com')
-      expect(body['short_url']).to eq('http://url_shortener.herokuapp.com/7clzi')
+      expect(body['short_url']).to eq('http://shortenerurl-staging.com/7clzi')
     end
 
     context 'when can\'t create a new link' do
