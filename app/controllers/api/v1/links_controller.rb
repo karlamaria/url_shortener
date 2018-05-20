@@ -4,7 +4,7 @@ class Api::V1::LinksController < ApplicationController
     @link = Link.find(params[:short_url])
     return not_found unless @link
 
-    render json: { clicks: @link.clicks }
+    render json: { clicks: @link.clicks }, status: :ok
   end
 
   # GET /a1b2c3
