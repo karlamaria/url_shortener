@@ -6,7 +6,7 @@ class Api::V1::LinksController < ApplicationController
       @link.increment!(:clicks)
       redirect_to @link.long_url, status: :moved_permanently
     else
-      head :not_found
+      head :not_found, "content_type" => 'text/plain'
     end
   end
 

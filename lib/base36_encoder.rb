@@ -1,4 +1,4 @@
-class Base36Encoding
+class Base36Encoder
   def self.encode(value)
     value.to_s(36)
   end
