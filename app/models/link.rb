@@ -5,7 +5,7 @@ class Link < ApplicationRecord
   DOMAIN = ENV['SHORTENER_URL_DOMAIN'].freeze
 
   def self.find(short_url)
-    link_id = ::Base36Encoder.decode(short_url)
+    link_id = ::Encoder.decode(short_url)
     Link.find_by_id(link_id)
   end
 
@@ -17,7 +17,7 @@ class Link < ApplicationRecord
   end
 
   def shorten_url
-    short_url = "#{DOMAIN}#{::Base36Encoder.encode(self.id)}"
+    short_url = "#{DOMAIN}#{::Encoder.encode(self.id)}"
     self.update_attributes(short_url: short_url)
   end
 end

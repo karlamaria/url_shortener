@@ -8,13 +8,13 @@ RSpec.describe Link, type: :model do
       before { link }
 
       it 'returns link' do
-        expect(Link.find('7clzi')).to eq(link)
+        expect(Link.find('07clzi')).to eq(link)
       end
     end
 
     context 'when there are no links with the short url' do
       it 'returns nil' do
-        expect(Link.find('7clzi')).to eq(nil)
+        expect(Link.find('07clzi')).to eq(nil)
       end
     end
   end
@@ -23,9 +23,9 @@ RSpec.describe Link, type: :model do
     subject { Link.new(params) }
     let(:params) { { long_url: 'google.com' } }
 
-    it 'shortened URL' do
+    it 'creates a short URL' do
       subject.save
-      expect(subject.short_url).to eq("http://shortenerurl-staging.com/1")
+      expect(subject.short_url).to eq("http://shortenerurl-staging.com/000001")
     end
 
     context 'when a URL has no protocol' do
