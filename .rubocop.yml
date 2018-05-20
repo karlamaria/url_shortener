@@ -1,0 +1,55 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - db/migrate/*
+    - db/schema.rb
+
+Rails:
+  Enabled: true
+
+Style/AsciiComments:
+  Enabled: false
+Style/StringLiteralsInInterpolation:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/ModuleFunction:
+  Enabled: false
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: false
+Naming/AccessorMethodName:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Rails/HttpPositionalArguments:
+  Enabled: true
+  Exclude:
+    - spec/**/*
+
+RSpec/DescribedClass:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 100
+
+Metrics/BlockLength:
+  ExcludedMethods:
+    - namespace # Rails rake tasks (lib/tasks) namespace blocks
+  Exclude:
+    - spec/**/*.rb
+
+RSpec/ExampleLength:
+  Max: 20
